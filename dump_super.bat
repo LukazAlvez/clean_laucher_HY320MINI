@@ -1,10 +1,15 @@
 @echo off
 set ADB=platform-tools\adb.exe
 set OUT=backup_hy320_mini
-set IP=192.168.5.113:5555
+if "%1"=="" (
+    set /p IP="Digite o IP do projetor (ex: 192.168.1.50): "
+) else (
+    set IP=%1
+)
+set TARGET=%IP%:5555
 
-echo Connecting...
-%ADB% connect %IP%
+echo Connecting to %TARGET%...
+%ADB% connect %TARGET%
 
 echo Dumping super (2.4 GB - Android 12)...
 %ADB% exec-out dd if=/dev/block/by-name/super 2>nul > %OUT%\super.img

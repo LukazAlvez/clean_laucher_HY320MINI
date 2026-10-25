@@ -1,11 +1,16 @@
 @echo off
 set ADB=platform-tools\adb.exe
-set IP=192.168.5.113:5555
+if "%1"=="" (
+    set /p IP="Digite o IP do projetor (ex: 192.168.1.50): "
+) else (
+    set IP=%1
+)
+set TARGET=%IP%:5555
 set OUT=d:\Projetos Antgravity\projeto 01\diagnostico
 
 if not exist "%OUT%" mkdir "%OUT%"
 
-%ADB% connect %IP%
+%ADB% connect %TARGET%
 
 echo === DEVICE INFO ===
 %ADB% shell "getprop ro.product.model" > "%OUT%\device_info.txt"

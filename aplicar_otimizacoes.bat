@@ -1,9 +1,14 @@
 @echo off
 set ADB=platform-tools\adb.exe
-set IP=192.168.5.113:5555
+if "%1"=="" (
+    set /p IP="Digite o IP do projetor (ex: 192.168.1.50): "
+) else (
+    set IP=%1
+)
+set TARGET=%IP%:5555
 
-echo Aplicando otimizacoes seguras no HY320 Mini...
-%ADB% connect %IP%
+echo Aplicando otimizacoes seguras no HY320 Mini em %TARGET%...
+%ADB% connect %TARGET%
 
 echo 1. Desativando bloatware chines sem remover APKs...
 %ADB% shell "pm disable-user --user 0 com.aispeech.tvui"

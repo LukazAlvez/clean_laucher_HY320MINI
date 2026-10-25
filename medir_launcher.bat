@@ -1,7 +1,6 @@
 @echo off
 set ADB="d:\Projetos Antgravity\projeto 01\platform-tools\adb.exe"
 set OUT=d:\Projetos Antgravity\projeto 01\screens
-%ADB% connect 192.168.5.113:5555 >nul
 echo === Abrir favorito (OK no 1o item) ===
 %ADB% shell am start -n com.antigravity.darklauncher/.MainActivity >nul
 ping -n 3 127.0.0.1 >nul

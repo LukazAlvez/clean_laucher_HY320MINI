@@ -2,7 +2,7 @@
 set ADB="d:\Projetos Antgravity\projeto 01\platform-tools\adb.exe"
 set OUT=d:\Projetos Antgravity\projeto 01\screens
 if not exist "%OUT%" mkdir "%OUT%"
-%ADB% connect 192.168.5.113:5555 >nul
+%ADB% connect %IP% >nul
 %ADB% install -r "d:\Projetos Antgravity\projeto 01\DarkLauncher.apk"
 %ADB% shell am force-stop com.antigravity.darklauncher
 %ADB% shell am start -W -n com.antigravity.darklauncher/.MainActivity

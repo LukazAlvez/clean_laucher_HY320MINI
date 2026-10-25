@@ -7,7 +7,7 @@
 
 ## 📋 Sumário
 1. [Especificações de Hardware e Sistema](#-especificações-de-hardware-e-sistema)
-2. [O Desafio Inicial: Como Ativar o ADB no HY320 Mini (Bypass da Launcher de Fábrica)](#-o-desafio-inicial-como-ativar-o-adb-no-hy320-mini)
+2. [O Desafio Inicial: Como Ativar o ADB no HY320 Mini (Bypass via Activity Launcher)](#-o-desafio-inicial-como-ativar-o-adb-no-hy320-mini)
 3. [Diagnóstico Inicial e Problemas Encontrados](#-diagnóstico-inicial-e-problemas-encontrados)
 4. [Backup Completo Bit a Bit das Partições (Raw eMMC)](#-backup-completo-bit-a-bit-das-partições)
 5. [Otimização do Sistema e Debloat Seguro](#-otimização-do-sistema-e-debloat-seguro)
@@ -44,18 +44,18 @@ Nessa interface:
 - Clicar 7 vezes consecutivas em **"Sobre o Dispositivo"** ou no **"Número da Versão / Compilação"** (*Build Number*) dentro do menu padrão do projetor **não surte efeito nenhum** — o clique é ignorado e não ativa o menu de desenvolvedor.
 - Sem esse menu, a **Depuração USB** e a **Depuração ADB na Rede** permanecem desligadas, mantendo a porta `5555` fechada e impedindo qualquer conexão remota pelo computador.
 
-### A Solução: O "Bypass" com Launcher Alternativa via Pendrive
-Para contornar o bloqueio da interface original e alcançar as configurações nativas do Android AOSP (`com.android.settings`), foi utilizado o seguinte procedimento:
+### A Solução: O "Bypass" com o Activity Launcher via Pendrive
+Para contornar o bloqueio da interface original e alcançar as configurações nativas do Android AOSP (`com.android.settings`), foi utilizado o **Activity Launcher**:
 
-1. **Download do APK da Launcher Alternativa**:
-   - No computador, foi baixado o APK do **Projectivy Launcher** (ou alternativamente o **Activity Launcher**).
+1. **Download do APK do Activity Launcher**:
+   - No computador, foi baixado o APK do **Activity Launcher**.
 2. **Transferência e Instalação**:
    - O arquivo APK foi colocado em um **pendrive USB**.
    - O pendrive foi conectado na porta USB do projetor HY320 Mini.
-   - Pelo aplicativo nativo de **Gerenciador de Arquivos** do projetor, navegou-se até o pendrive e o APK foi instalado.
+   - Pelo aplicativo nativo de **Gerenciador de Arquivos** do projetor, navegou-se até o pendrive e o APK do Activity Launcher foi instalado.
 3. **Acesso às Configurações Nativas do Android**:
-   - Ao abrir o Projectivy Launcher, clicou-se no ícone de engrenagem no topo e selecionou-se a opção **"Configurações do Android"** (*Android Settings*).
-   - Essa ação forçou a abertura do menu de configurações original do Android 12 (AOSP), ignorando a camada proprietária da fabricante.
+   - Ao abrir o Activity Launcher, pesquisou-se por **"Configurações"** (`com.android.settings`).
+   - Clicou-se na atividade principal de Configurações do Android, forçando a abertura do menu de configurações original do Android 12 (AOSP) e contornando a camada restritiva da fabricante.
 4. **Ativação do Modo Desenvolvedor e ADB**:
    - Nas Configurações do Android, foi acessado **Sobre o Dispositivo** (*About Device*).
    - Clicou-se **7 vezes seguidas** sobre **Número da Versão / Compilação** (*Build Number*) até surgir o pop-up nativo: *"Você agora é um desenvolvedor!"*.
@@ -63,9 +63,9 @@ Para contornar o bloqueio da interface original e alcançar as configurações n
      - ✅ **Depuração USB** (*USB Debugging*)
      - ✅ **Depuração de Rede / Wi-Fi** (*Wireless Debugging / ADB over Network*)
 5. **Conexão Imediata pelo PC**:
-   - Com o IP do projetor (`192.168.5.113`), executou-se no terminal do PC:
+   - Com o IP local atribuído ao projetor na rede Wi-Fi, executou-se no terminal do PC:
      ```powershell
-     adb connect 192.168.5.113:5555
+     adb connect <IP_DO_PROJETOR>:5555
      ```
    - O pop-up de autorização RSA apareceu na projeção, foi confirmado em *"Sempre permitir a partir deste computador"*, e o acesso total ao shell do Android foi conquistado!
 
