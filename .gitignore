@@ -1,0 +1,9 @@
+# Ferramentas de build locais e temporários
+build-tools/
+DarkLauncher/build/
+*.keystore
+
+# Imagens brutas de partição (muito pesadas para o GitHub, > 3 GB)
+*.img
+backup_hy320_mini/*.img
+*.zip

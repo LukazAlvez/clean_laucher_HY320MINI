@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Preto puro: no projetor LCD bloqueia a luz e aumenta o contraste -->
+    <color name="bg">#000000</color>
+    <color name="surface">#141414</color>
+    <color name="surface_focus">#262626</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9A9A9A</color>
+    <color name="text_muted">#5E5E5E</color>
+</resources>

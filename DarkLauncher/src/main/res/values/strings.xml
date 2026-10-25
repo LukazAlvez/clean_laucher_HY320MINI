@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dark Launcher</string>
+    <string name="favorites">Favoritos</string>
+    <string name="apps">Aplicativos</string>
+    <string name="store">Play Store</string>
+    <string name="settings">Configurações</string>
+    <string name="original">Launcher original</string>
+    <string name="add">Adicionar</string>
+    <string name="hint_all_apps">Segure OK para adicionar ou remover dos favoritos</string>
+</resources>

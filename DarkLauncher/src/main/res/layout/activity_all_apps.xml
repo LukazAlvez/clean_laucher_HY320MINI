@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingStart="48dp"
+    android:paddingEnd="48dp"
+    android:paddingTop="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/apps"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/text_muted"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/hint_all_apps"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never">
+
+        <GridLayout
+            android:id="@+id/grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="5"
+            android:padding="8dp"
+            android:clipChildren="false"
+            android:clipToPadding="false" />
+    </ScrollView>
+</LinearLayout>
+
